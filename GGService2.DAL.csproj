@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3BE0C59E-80F1-4CF6-9D12-25059DCAD1B5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GGService2.DAL</RootNamespace>
+    <AssemblyName>GGService2.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentNHibernate">
+      <HintPath>lib\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Reactive.Linq, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\System.Reactive.Linq.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\DictionaryCache.cs" />
+    <Compile Include="Classes\EloManager.cs" />
+    <Compile Include="Classes\Enums\EBattleStatus.cs" />
+    <Compile Include="Classes\Enums\EBattleType.cs" />
+    <Compile Include="Classes\Enums\EBetStatus.cs" />
+    <Compile Include="Classes\Enums\ECommandStatus.cs" />
+    <Compile Include="Classes\Enums\EHungerGamesRegistrationState.cs" />
+    <Compile Include="Classes\Enums\ELeagueRank.cs" />
+    <Compile Include="Classes\Enums\ELogLevel.cs" />
+    <Compile Include="Classes\Enums\EMemberState.cs" />
+    <Compile Include="Classes\Enums\EMessageFunction.cs" />
+    <Compile Include="Classes\Enums\ENotificationButtons.cs" />
+    <Compile Include="Classes\Enums\ENotificationSets.cs" />
+    <Compile Include="Classes\Enums\ENotificationTypes.cs" />
+    <Compile Include="Classes\Enums\ERegion.cs" />
+    <Compile Include="Classes\Enums\EServerStatus.cs" />
+    <Compile Include="Classes\Enums\ESessionStatus.cs" />
+    <Compile Include="Classes\Enums\ETournamentType.cs" />
+    <Compile Include="Classes\Logger.cs" />
+    <Compile Include="Classes\MessageTypeHandler.cs" />
+    <Compile Include="Classes\Objects\LeagueDescription.cs" />
+    <Compile Include="Commands\AcceptHungerGamesCommand.cs" />
+    <Compile Include="Commands\AddAccountCommand.cs" />
+    <Compile Include="Commands\BaseBattleCommand.cs" />
+    <Compile Include="Commands\BaseCommand.cs" />
+    <Compile Include="Commands\BaseSessionCommand.cs" />
+    <Compile Include="Commands\CancelBattleCommand.cs" />
+    <Compile Include="Commands\CommandResult.cs" />
+    <Compile Include="Commands\CreateBattleCommand.cs" />
+    <Compile Include="Commands\CreateTournamentCommand.cs" />
+    <Compile Include="Commands\DeclineHungerGamesCommand.cs" />
+    <Compile Include="Commands\GiveUpBattleCommand.cs" />
+    <Compile Include="Commands\JoinBattleCommand.cs" />
+    <Compile Include="Commands\LeaveBattleCommand.cs" />
+    <Compile Include="Commands\MakeBetCommand.cs" />
+    <Compile Include="Commands\MonitorCommand.cs" />
+    <Compile Include="Commands\RegisterOnHungerGamesCommand.cs" />
+    <Compile Include="Commands\RegisterOnTournamentCommand.cs" />
+    <Compile Include="Interfaces\IBalanceManager.cs" />
+    <Compile Include="Interfaces\ICache.cs" />
+    <Compile Include="Interfaces\ICommandGetter.cs" />
+    <Compile Include="Interfaces\ICommandProvider.cs" />
+    <Compile Include="Interfaces\IEloController.cs" />
+    <Compile Include="Interfaces\IHashable.cs" />
+    <Compile Include="Interfaces\IHaveInfo.cs" />
+    <Compile Include="Interfaces\IIdentity.cs" />
+    <Compile Include="Interfaces\ILogger.cs" />
+    <Compile Include="Model\Balance.cs" />
+    <Compile Include="Model\BalanceMap.cs" />
+    <Compile Include="Model\Battle.cs" />
+    <Compile Include="Model\BattleClan.cs" />
+    <Compile Include="Model\BattleClanMap.cs" />
+    <Compile Include="Model\BattleClanSlot.cs" />
+    <Compile Include="Model\BattleClanSlotMap.cs" />
+    <Compile Include="Model\BattleMap.cs" />
+    <Compile Include="Model\BattleMember.cs" />
+    <Compile Include="Model\BattleMemberClan.cs" />
+    <Compile Include="Model\BattleMemberClanMap.cs" />
+    <Compile Include="Model\BattleMemberMap.cs" />
+    <Compile Include="Model\BattleMemberSingle.cs" />
+    <Compile Include="Model\BattleMemberSingleMap.cs" />
+    <Compile Include="Model\BattleSingle.cs" />
+    <Compile Include="Model\BattleSingleMap.cs" />
+    <Compile Include="Model\Bet.cs" />
+    <Compile Include="Model\BetMap.cs" />
+    <Compile Include="Model\BetMember.cs" />
+    <Compile Include="Model\BetMemberMap.cs" />
+    <Compile Include="Model\Chat.cs" />
+    <Compile Include="Model\ChatMap.cs" />
+    <Compile Include="Model\Clan.cs" />
+    <Compile Include="Model\ClanMap.cs" />
+    <Compile Include="Model\ClanMember.cs" />
+    <Compile Include="Model\ClanMemberMap.cs" />
+    <Compile Include="Model\CsgoGame.cs" />
+    <Compile Include="Model\CsgoGameMap.cs" />
+    <Compile Include="Model\Event.cs" />
+    <Compile Include="Model\EventMap.cs" />
+    <Compile Include="Model\Game.cs" />
+    <Compile Include="Model\GameAccount.cs" />
+    <Compile Include="Model\GameAccountCsgo.cs" />
+    <Compile Include="Model\GameAccountCsgoMap.cs" />
+    <Compile Include="Model\GameAccountLol.cs" />
+    <Compile Include="Model\GameAccountLolMap.cs" />
+    <Compile Include="Model\GameAccountMap.cs" />
+    <Compile Include="Model\GameAccountRandom.cs" />
+    <Compile Include="Model\GameAccountRandomMap.cs" />
+    <Compile Include="Model\GameMap.cs" />
+    <Compile Include="Model\HungerGames.cs" />
+    <Compile Include="Model\HungerGamesElo.cs" />
+    <Compile Include="Model\HungerGamesEloMap.cs" />
+    <Compile Include="Model\HungerGamesLives.cs" />
+    <Compile Include="Model\HungerGamesLivesMap.cs" />
+    <Compile Include="Model\HungerGamesMap.cs" />
+    <Compile Include="Model\HungerGamesRegistration.cs" />
+    <Compile Include="Model\HungerGamesRegistrationMap.cs" />
+    <Compile Include="Model\HungerGamesSeason.cs" />
+    <Compile Include="Model\HungerGamesSeasonMap.cs" />
+    <Compile Include="Model\HungerGamesSession.cs" />
+    <Compile Include="Model\HungerGamesSessionMap.cs" />
+    <Compile Include="Model\HungerGamesSessionMember.cs" />
+    <Compile Include="Model\HungerGamesSessionMemberMap.cs" />
+    <Compile Include="Model\League.cs" />
+    <Compile Include="Model\LeagueMap.cs" />
+    <Compile Include="Model\Notification.cs" />
+    <Compile Include="Model\NotificationMap.cs" />
+    <Compile Include="Model\ProcessorCommands.cs" />
+    <Compile Include="Model\ProcessorCommandsMap.cs" />
+    <Compile Include="Model\ProcessorResults.cs" />
+    <Compile Include="Model\ProcessorResultsMap.cs" />
+    <Compile Include="Model\ServerCsgo.cs" />
+    <Compile Include="Model\ServerCsgoMap.cs" />
+    <Compile Include="Model\ServerCsgoQueue.cs" />
+    <Compile Include="Model\ServerCsgoQueueMap.cs" />
+    <Compile Include="Model\Tournament.cs" />
+    <Compile Include="Model\TournamentBattle.cs" />
+    <Compile Include="Model\TournamentBattleMap.cs" />
+    <Compile Include="Model\TournamentMap.cs" />
+    <Compile Include="Model\TournamentRegistration.cs" />
+    <Compile Include="Model\TournamentRegistrationMap.cs" />
+    <Compile Include="Model\Transaction.cs" />
+    <Compile Include="Model\TransactionMap.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\UserMap.cs" />
+    <Compile Include="Model\UserStats.cs" />
+    <Compile Include="Model\UserStatsMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="lib\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
